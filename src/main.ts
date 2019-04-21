@@ -5,6 +5,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
+import { logger } from './middlewares/logger.middleware.functional';
 
 /**
  * async function which will bootstrap the application
@@ -31,7 +32,8 @@ async function bootstrap() {
   /**
    * User a middleware for all the routes
    */
-  // app.use(LoggerMiddleware);
+  // app.use(new LoggerMiddleware().use);
+  // app.use(logger);
 
   /**
    * Start up the listener for inbound HTTP requests.
