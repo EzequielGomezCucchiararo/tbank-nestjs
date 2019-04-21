@@ -1,8 +1,4 @@
-import {
-  ArgumentsHost,
-  Catch,
-  ExceptionFilter,
-}                              from '@nestjs/common';
+import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
 import { ValidationException } from '../exceptions/validation.exception';
 
 // TODO: Intentar reducir el código uniendo este filter con el de HTTP
@@ -21,7 +17,7 @@ export class ValidationExceptionFilter implements ExceptionFilter {
       timestamp: new Date().toISOString(),
       path: request.url,
       message: errorMessage,
-      constrains: exception.constraints
+      constrains: exception.constraints,
     });
   }
 }

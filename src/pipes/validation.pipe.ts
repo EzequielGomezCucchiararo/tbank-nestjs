@@ -3,10 +3,10 @@ import {
   BadRequestException,
   Injectable,
   PipeTransform,
-}                                    from '@nestjs/common';
-import { plainToClass }              from 'class-transformer';
+} from '@nestjs/common';
+import { plainToClass } from 'class-transformer';
 import { validate, ValidationError } from 'class-validator';
-import { ValidationException }       from '../exceptions/validation.exception';
+import { ValidationException } from '../exceptions/validation.exception';
 
 @Injectable()
 export class ValidationPipe implements PipeTransform<any> {

@@ -2,10 +2,12 @@
  * The entry file of the application that creates a Nest application instance.
  */
 
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { LoggerMiddleware } from './middlewares/logger.middleware';
-import { logger } from './middlewares/logger.middleware.functional';
+import { NestFactory }               from '@nestjs/core';
+import { AppModule }                 from './app.module';
+import { LoggerMiddleware }          from './middlewares/logger.middleware';
+import { logger }                    from './middlewares/logger.middleware.functional';
+import { HttpExceptionFilter }       from './filters/http-exception.filter';
+import { ValidationExceptionFilter } from './filters/validation-exception.filter';
 
 /**
  * async function which will bootstrap the application
@@ -28,6 +30,13 @@ async function bootstrap() {
   activate a listener which listens to shutdown signals
    */
   app.enableShutdownHooks();
+
+  /**
+   * Apply global filters
+   */
+  app.useGlobalFilters(new HttpExceptionFilter());
+  app.useGlobalFilters(new ValidationExceptionFilter());
+
 
   /**
    * User a middleware for all the routes

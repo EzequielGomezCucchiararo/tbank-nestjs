@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { ValidationError }           from 'class-validator';
+import { ValidationError } from 'class-validator';
 
 export class ValidationException extends HttpException {
   public constraints: string[];
