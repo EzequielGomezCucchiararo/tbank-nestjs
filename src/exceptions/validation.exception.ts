@@ -4,7 +4,7 @@ import { ValidationError } from 'class-validator';
 export class ValidationException extends HttpException {
   public constraints: string[];
 
-  constructor(private readonly errors: ValidationError[]) {
+  constructor(private readonly errors: ValidationError[] = []) {
     super('Data Validation Error', HttpStatus.BAD_REQUEST);
     this.constraints = this.getConstraints();
   }

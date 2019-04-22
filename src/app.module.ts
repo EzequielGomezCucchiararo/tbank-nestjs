@@ -17,9 +17,7 @@ import { LoggerMiddleware } from './middlewares/logger.middleware';
 @Module({
   imports: [UsersModule],
   controllers: [AppController],
-  providers: [
-    AppService
-  ],
+  providers: [AppService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
