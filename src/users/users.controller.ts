@@ -5,8 +5,9 @@ import {
   Header,
   Param,
   ParseIntPipe,
-  Post, SetMetadata,
-  UseGuards,
+  Post,
+  SetMetadata,
+  UseGuards, UseInterceptors,
 } from '@nestjs/common';
 
 import { User }               from './interfaces/user.interface';
@@ -15,9 +16,11 @@ import { AddUserDto }         from './dto/add-user.dto';
 import { ValidationPipe }     from '../pipes/validation.pipe';
 import { AuthorizationGuard } from '../auth/authorization.guard';
 import { Roles }              from '../decorators/roles.decorator';
+import { LoggingInterceptor } from '../interceptors/logging.interceptor';
 
 @Controller('users')
 @UseGuards(AuthorizationGuard)
+@UseInterceptors(LoggingInterceptor)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 

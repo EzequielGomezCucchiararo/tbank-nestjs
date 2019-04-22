@@ -8,16 +8,20 @@ export class AuthorizationGuard implements CanActivate {
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
+    console.log('On Auth Guard...');
+    // Use context.getClass() if the metadata is set for the class controller
     const roles = this.reflector.get<string[]>('roles', context.getHandler());
 
     if (!roles) {
       return true;
     }
 
-    const request = context.switchToHttp().getRequest();
-    const user = request.user;
-    const hasRole = () => user.roles.some(role => roles.includes(role));
+    return true;
 
-    return user && user.roles && hasRole();
+    // const request = context.switchToHttp().getRequest();
+    // const user = request.user;
+    // const hasRole = () => user.roles.some(role => roles.includes(role));
+
+    // return user && user.roles && hasRole();
   }
 }
