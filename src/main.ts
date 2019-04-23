@@ -2,9 +2,9 @@
  * The entry file of the application that creates a Nest application instance.
  */
 
-import { NestFactory }               from '@nestjs/core';
-import { AppModule }                 from './app.module';
-import { HttpExceptionFilter }       from './filters/http-exception.filter';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { HttpExceptionFilter } from './filters/http-exception.filter';
 import { ValidationExceptionFilter } from './filters/validation-exception.filter';
 
 /**

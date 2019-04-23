@@ -11,16 +11,16 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 
-import { User }                  from './interfaces/user.interface';
-import { UsersService }          from './users.service';
-import { AddUserDto }            from './dto/add-user.dto';
-import { ValidationPipe }        from '../pipes/validation.pipe';
-import { AuthorizationGuard }    from '../auth/authorization.guard';
-import { Roles }                 from '../decorators/roles.decorator';
-import { LoggingInterceptor }    from '../interceptors/logging.interceptor';
-import { TransformInterceptor }  from '../interceptors/transform.interceptor';
+import { User } from './interfaces/user.interface';
+import { UsersService } from './users.service';
+import { AddUserDto } from './dto/add-user.dto';
+import { ValidationPipe } from '../pipes/validation.pipe';
+import { AuthorizationGuard } from '../auth/authorization.guard';
+import { Roles } from '../decorators/roles.decorator';
+import { LoggingInterceptor } from '../interceptors/logging.interceptor';
+import { TransformInterceptor } from '../interceptors/transform.interceptor';
 import { UsersCacheInterceptor } from './users.cache.interceptor';
-import { TimeoutInterceptor }    from '../interceptors/timeout.interceptor';
+import { TimeoutInterceptor } from '../interceptors/timeout.interceptor';
 
 @Controller('users')
 @UseGuards(AuthorizationGuard)
