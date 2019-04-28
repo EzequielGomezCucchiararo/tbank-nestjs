@@ -11,15 +11,17 @@ import {
 
 import * as pino from 'pino';
 
-import { AppController }    from './app.controller';
-import { AppService }       from './app.service';
-import { UsersModule }      from './users/users.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { UsersModule } from './users/users.module';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
-import { CONSTANTS }        from './constants';
+import { CONSTANTS } from './constants';
 
 const pinoLoggerProvider = {
-  provide: CONSTANTS.pinoLoggerSym,
-  useValue: pino(),
+  provide: CONSTANTS.loggerProviderSym,
+  useValue: pino({
+    prettyPrint: { colorize: true }
+  }),
 };
 
 @Module({

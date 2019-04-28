@@ -1,4 +1,4 @@
 export const CONSTANTS = {
-  pinoLoggerSym: Symbol('logger')
+  loggerProviderSym: Symbol('logger'),
 };
 
