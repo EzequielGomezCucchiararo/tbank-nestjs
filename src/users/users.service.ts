@@ -13,7 +13,7 @@ export class UsersService implements OnModuleInit {
   ) {}
 
   onModuleInit(): void {
-    this.logger.info('Users Service has been initialized.');;
+    this.logger.info('Users Service has been initialized.');
   }
 
   getAll(): User[] {
