@@ -9,25 +9,16 @@ import {
   RequestMethod,
 } from '@nestjs/common';
 
-import * as pino from 'pino';
-
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
-import { CONSTANTS } from './constants';
-
-const pinoLoggerProvider = {
-  provide: CONSTANTS.loggerProviderSym,
-  useValue: pino({
-    prettyPrint: { colorize: true }
-  }),
-};
+import { UtilsModule } from './utils/utils.module';
 
 @Module({
-  imports: [UsersModule],
+  imports: [UtilsModule, UsersModule],
   controllers: [AppController],
-  providers: [AppService, pinoLoggerProvider],
+  providers: [AppService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
