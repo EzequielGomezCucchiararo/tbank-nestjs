@@ -1,4 +1,5 @@
 # Dockerfile
+# run with docker container run -p 3000:8081 karmapp
 
 FROM node:11-alpine
 WORKDIR /app

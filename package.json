@@ -34,7 +34,7 @@
     "rxjs": "^6.3.3"
   },
   "devDependencies": {
-    "@nestjs/testing": "^6.0.0",
+    "@nestjs/testing": "^6.2.0",
     "@types/express": "^4.16.0",
     "@types/jest": "^23.3.13",
     "@types/node": "^10.12.18",
@@ -61,7 +61,7 @@
       "ts"
     ],
     "rootDir": "src",
-    "testRegex": ".spec.ts$",
+    "testRegex": ".test.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
